@@ -21,15 +21,15 @@ if [[ -z "$cmd" ]]; then
 fi
 
 start_emit() {
-    docker compose -f docker-compose.yaml up
+    docker-compose -f docker-compose.yaml up
 }
 
 stop_emit() {
-    docker compose -f docker-compose.yaml down
+    docker-compose -f docker-compose.yaml down
 }
 
 teardown_emit() {
-    docker compose -f docker-compose.yaml down --volumes
+    docker-compose -f docker-compose.yaml down --volumes
 }
 
 case $cmd in 
