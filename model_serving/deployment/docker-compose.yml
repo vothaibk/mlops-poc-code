@@ -1,6 +1,8 @@
 version: "3.7"
 services:
   bentoml_service:
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     image: $DOCKER_USER/mlops_crash_course/model_serving:latest
     container_name: online_serving
     restart: on-failure
