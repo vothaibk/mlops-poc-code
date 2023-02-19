@@ -69,13 +69,11 @@ def save_model() -> bentoml.Model:
     Log().log.info(bentoml_model.__dict__)
     return bentoml_model
 
-
 bentoml_model = save_model()
 feature_list = bentoml_model.custom_objects["feature_list"]
 bentoml_runner = bentoml.sklearn.get(bentoml_model.tag).to_runner()
 svc = bentoml.Service(bentoml_model.tag.name, runners=[bentoml_runner])
 fs = feast.FeatureStore(repo_path=AppPath.FEATURE_REPO)
-
 
 def predict(request: np.ndarray) -> np.ndarray:
     Log().log.info(f"start predict")

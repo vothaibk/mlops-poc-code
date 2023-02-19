@@ -28,7 +28,7 @@ def batch_prediction():
     # Load data
     batch_df = load_df(AppPath.BATCH_INPUT_PQ)
 
-    # restructure features
+    # Restructure features
     model_signature: ModelSignature = mlflow_model.metadata.signature
     feature_list = []
     for name in model_signature.inputs.input_names():
