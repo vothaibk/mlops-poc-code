@@ -48,7 +48,7 @@ compose_up() {
     # replace value
     sed -i '' -e s/localhost/${FEAST_ONLINE_STORE_HOST}/ ./feature_repo/feature_store.yaml
 
-    docker-compose --env-file ./deployment/.env -f ./deployment/docker-compose.yml up -d
+    docker compose --env-file ./deployment/.env -f ./deployment/docker-compose.yml up -d
 }
 
 compose_down() {
@@ -57,7 +57,7 @@ compose_down() {
     # replace value
     sed -i '' -e s/${FEAST_ONLINE_STORE_HOST}/localhost/ ./feature_repo/feature_store.yaml
 
-    docker-compose --env-file ./deployment/.env -f ./deployment/docker-compose.yml down
+    docker compose --env-file ./deployment/.env -f ./deployment/docker-compose.yml down
 }
 
 deploy_dags() {
